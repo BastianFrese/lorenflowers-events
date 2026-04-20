@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 340" fill="none">
+  <!-- Stems -->
+  <g stroke="#4a7c3f" stroke-width="2.5" stroke-linecap="round" fill="none">
+    <path d="M130 220 C128 195, 118 170, 112 148"/>
+    <path d="M130 220 C132 198, 138 175, 146 152"/>
+    <path d="M130 220 C126 205, 120 190, 102 162"/>
+    <path d="M130 220 C134 202, 142 185, 158 160"/>
+    <path d="M130 220 C130 210, 130 190, 130 150"/>
+  </g>
+
+  <!-- Leaves -->
+  <g fill="#5a9e48">
+    <path d="M110 180 C97 175, 82 182, 80 190 C78 198, 90 200, 102 190 Z" opacity="0.85"/>
+    <path d="M150 178 C163 173, 178 180, 180 188 C182 196, 170 198, 158 188 Z" opacity="0.85"/>
+    <path d="M117 198 C104 196, 90 206, 89 214 C88 222, 100 221, 110 210 Z" opacity="0.75"/>
+    <path d="M143 200 C156 198, 170 208, 171 216 C172 224, 160 223, 150 212 Z" opacity="0.75"/>
+  </g>
+
+  <!-- Small leaves / filler -->
+  <g fill="#6db35a" opacity="0.7">
+    <ellipse cx="94" cy="148" rx="7" ry="13" transform="rotate(-25 94 148)"/>
+    <ellipse cx="166" cy="145" rx="7" ry="13" transform="rotate(25 166 145)"/>
+    <ellipse cx="107" cy="134" rx="5" ry="10" transform="rotate(-15 107 134)"/>
+    <ellipse cx="153" cy="132" rx="5" ry="10" transform="rotate(15 153 132)"/>
+  </g>
+
+  <!-- Baby's breath / small white flowers -->
+  <g fill="#fff" stroke="#ccc" stroke-width="0.5">
+    <circle cx="90" cy="124" r="3"/>
+    <circle cx="97" cy="116" r="2.5"/>
+    <circle cx="170" cy="122" r="3"/>
+    <circle cx="163" cy="114" r="2.5"/>
+    <circle cx="110" cy="109" r="2"/>
+    <circle cx="150" cy="107" r="2"/>
+  </g>
+
+  <!-- Left red rose (poppy style) -->
+  <g transform="translate(94, 94)">
+    <circle cx="0" cy="0" r="18" fill="#c0392b"/>
+    <path d="M-8,-12 C-2,-18 8,-16 10,-8 C12,0 4,6 -2,4 C-8,2 -12,-4 -8,-12Z" fill="#e74c3c"/>
+    <path d="M4,-14 C10,-16 16,-10 14,-2 C12,6 4,8 0,4 C-4,0 -2,-10 4,-14Z" fill="#d63031"/>
+    <path d="M-4,2 C-2,-4 6,-6 8,0 C10,6 2,10 -2,8 C-6,6 -6,4 -4,2Z" fill="#e74c3c" opacity="0.8"/>
+    <circle cx="0" cy="-2" r="4" fill="#c0392b" opacity="0.6"/>
+  </g>
+
+  <!-- Center sunflower -->
+  <g transform="translate(130, 72)">
+    <g fill="#f1c40f">
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(0 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(30 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(60 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(90 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(120 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(150 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(180 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(210 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(240 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(270 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(300 0 0)"/>
+      <ellipse cx="0" cy="-18" rx="5" ry="12" transform="rotate(330 0 0)"/>
+    </g>
+    <g fill="#e8b809" opacity="0.7">
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(15 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(45 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(75 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(105 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(135 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(165 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(195 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(225 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(255 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(285 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(315 0 0)"/>
+      <ellipse cx="0" cy="-14" rx="4" ry="9" transform="rotate(345 0 0)"/>
+    </g>
+    <circle cx="0" cy="0" r="10" fill="#8B5E3C"/>
+    <circle cx="0" cy="0" r="7" fill="#6B4226"/>
+    <circle cx="-2" cy="-2" r="1.5" fill="#8B5E3C" opacity="0.5"/>
+    <circle cx="2" cy="1" r="1.5" fill="#8B5E3C" opacity="0.5"/>
+  </g>
+
+  <!-- Right red rose -->
+  <g transform="translate(166, 92)">
+    <circle cx="0" cy="0" r="16" fill="#c0392b"/>
+    <path d="M-7,-10 C-1,-16 7,-14 9,-7 C11,0 3,5 -1,3 C-7,1 -10,-3 -7,-10Z" fill="#e74c3c"/>
+    <path d="M3,-12 C9,-14 14,-8 12,-1 C10,5 3,7 0,3 C-3,0 -1,-8 3,-12Z" fill="#d63031"/>
+    <path d="M-3,1 C-1,-3 5,-5 7,0 C9,5 2,8 -1,7 C-5,5 -5,3 -3,1Z" fill="#e74c3c" opacity="0.8"/>
+    <circle cx="0" cy="-1" r="3.5" fill="#c0392b" opacity="0.6"/>
+  </g>
+
+  <!-- Small blue cornflower top-left -->
+  <g transform="translate(108, 66)">
+    <g fill="#5b9bd5">
+      <ellipse cx="0" cy="-8" rx="3" ry="7" transform="rotate(0 0 0)"/>
+      <ellipse cx="0" cy="-8" rx="3" ry="7" transform="rotate(60 0 0)"/>
+      <ellipse cx="0" cy="-8" rx="3" ry="7" transform="rotate(120 0 0)"/>
+      <ellipse cx="0" cy="-8" rx="3" ry="7" transform="rotate(180 0 0)"/>
+      <ellipse cx="0" cy="-8" rx="3" ry="7" transform="rotate(240 0 0)"/>
+      <ellipse cx="0" cy="-8" rx="3" ry="7" transform="rotate(300 0 0)"/>
+    </g>
+    <circle cx="0" cy="0" r="3.5" fill="#3a6ea5"/>
+    <circle cx="0" cy="0" r="2" fill="#5b9bd5" opacity="0.5"/>
+  </g>
+
+  <!-- Small red bud top-right -->
+  <g transform="translate(154, 64)">
+    <circle cx="0" cy="0" r="10" fill="#c0392b"/>
+    <path d="M-4,-6 C0,-10 6,-8 6,-3 C6,2 0,5 -2,3 C-5,1 -6,-2 -4,-6Z" fill="#e74c3c"/>
+    <circle cx="0" cy="-1" r="2.5" fill="#c0392b" opacity="0.6"/>
+  </g>
+
+  <!-- Ribbon / bow at base -->
+  <path d="M120 218 C124 211, 128 209, 130 211 C132 209, 136 211, 140 218" stroke="#8b7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M118 221 C112 228, 108 231, 110 233" stroke="#8b7355" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M142 221 C148 228, 152 231, 150 233" stroke="#8b7355" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+  <!-- "Loren" text -->
+  <text x="130" y="278" text-anchor="middle" font-family="'Segoe Script','Brush Script MT','Dancing Script',cursive" font-size="38" fill="#3d3530" font-style="italic">Loren</text>
+  <!-- "Flowers" text -->
+  <text x="130" y="316" text-anchor="middle" font-family="'Segoe Script','Brush Script MT','Dancing Script',cursive" font-size="38" fill="#3d3530" font-style="italic">Flowers</text>
+</svg>

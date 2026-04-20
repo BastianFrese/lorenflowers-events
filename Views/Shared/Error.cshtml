@@ -1,0 +1,17 @@
+@model LorenFlowers.Events.Models.ErrorViewModel
+@{
+    ViewData["Title"] = "Fehler";
+}
+
+<section class="hero-section">
+    <div class="container text-center">
+        <span class="hero-badge"><i class="bi bi-exclamation-triangle"></i> FEHLER</span>
+        <h1 class="hero-title">Etwas ist schiefgelaufen</h1>
+        <p class="hero-subtitle">Bitte versuchen Sie es später erneut.</p>
+        @if (Model.ShowRequestId)
+        {
+            <p style="color:var(--text-muted);"><strong>Request-ID:</strong> <code>@Model.RequestId</code></p>
+        }
+        <a asp-controller="Home" asp-action="Index" class="btn-lf-primary">Zur Startseite</a>
+    </div>
+</section>

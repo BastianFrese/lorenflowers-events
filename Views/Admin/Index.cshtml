@@ -1,0 +1,116 @@
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "_AdminLayout";
+    var stats = ViewBag.Stats;
+    var events = ViewBag.Events as List<EventInfo>;
+}
+
+<h1 class="mb-4">Dashboard</h1>
+
+<div class="row g-4 mb-4">
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card bg-primary text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-white-50">Events</h6>
+                        <span class="stat-value">@stats.TotalEvents</span>
+                    </div>
+                    <i class="bi bi-calendar-event stat-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card bg-success text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-white-50">Pakete</h6>
+                        <span class="stat-value">@stats.TotalPackages</span>
+                    </div>
+                    <i class="bi bi-box stat-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card bg-info text-white h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-white-50">Highlights</h6>
+                        <span class="stat-value">@stats.TotalHighlights</span>
+                    </div>
+                    <i class="bi bi-star stat-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-xl-3">
+        <div class="card stat-card bg-warning h-100">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-dark-50">Mit Paketen</h6>
+                        <span class="stat-value">@stats.EventsWithPackages</span>
+                    </div>
+                    <i class="bi bi-check2-circle stat-icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Alle Events</h5>
+                <a href="/Events" class="btn btn-sm btn-outline-primary">Zur Übersicht</a>
+            </div>
+            <div class="card-body p-0">
+                @if (events != null && events.Any())
+                {
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Event</th>
+                                <th>Untertitel</th>
+                                <th>Pakete</th>
+                                <th>Highlights</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ev in events)
+                            {
+                                <tr>
+                                    <td>
+                                        <i class="bi @ev.Icon me-1"></i>
+                                        <strong>@ev.Title</strong>
+                                    </td>
+                                    <td><small class="text-muted">@ev.Subtitle</small></td>
+                                    <td><span class="badge bg-success">@ev.Packages.Count</span></td>
+                                    <td><span class="badge bg-info">@ev.Highlights.Count</span></td>
+                                    <td>
+                                        <a href="/Events/Detail/@ev.Slug" class="btn btn-sm btn-outline-secondary">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="text-center py-4 text-muted">
+                        <i class="bi bi-inbox fs-1"></i>
+                        <p class="mb-0">Keine Events vorhanden</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

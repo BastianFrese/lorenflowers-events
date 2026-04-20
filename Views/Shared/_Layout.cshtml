@@ -1,0 +1,142 @@
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration
+@{
+    var shopUrl = Configuration["ShopUrl"] ?? "https://loren-flowers.shop";
+    var contactEmail = Configuration["ContactEmail"] ?? "loren@loren-flowers.de";
+}
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] – Loren Flowers Events</title>
+    <meta name="description" content="Loren Flowers Events – florale Begleitung für Hochzeit, Trauerfeier, Kommunion, Konfirmation, Workshops und Märkte." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" type="image/svg+xml" href="~/images/site/logo.svg" />
+    <script>var t=localStorage.getItem('lf-theme');if(t)document.documentElement.setAttribute('data-theme',t);</script>
+</head>
+<body>
+
+    <header>
+        <nav class="lf-navbar navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/site/logo.svg" class="navbar-logo me-2" alt="Loren Flowers" />
+                    <span>
+                        Loren Flowers
+                        <small class="navbar-brand-sub">Events &amp; Anlässe</small>
+                    </span>
+                </a>
+
+                <button class="navbar-toggler border-0 mobile-menu-toggle d-lg-none" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navMain" aria-controls="navMain"
+                        aria-expanded="false" aria-label="Navigation umschalten">
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMain">
+                    <ul class="navbar-nav mx-auto gap-1">
+                        <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Start</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Events" asp-action="Detail" asp-route-slug="hochzeit">Hochzeit</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Events" asp-action="Detail" asp-route-slug="trauerfeier">Trauerfeier</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Events" asp-action="Detail" asp-route-slug="kommunion">Kommunion</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Events" asp-action="Detail" asp-route-slug="konfirmation">Konfirmation</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Events" asp-action="Detail" asp-route-slug="workshop">Workshop</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Events" asp-action="Detail" asp-route-slug="maerkte">Märkte</a></li>
+                    </ul>
+
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="theme-toggle d-none d-lg-flex">
+                            <button class="theme-toggle-btn" data-theme-value="light" title="Light mode"><i class="bi bi-sun-fill"></i></button>
+                            <button class="theme-toggle-btn active" data-theme-value="dark" title="Dark mode"><i class="bi bi-moon-fill"></i></button>
+                        </div>
+                        <a class="btn btn-lf-outline py-1 px-3 d-none d-lg-inline-flex" href="@shopUrl" target="_blank" rel="noopener">
+                            <i class="bi bi-shop me-1"></i>Zum Shop
+                        </a>
+                    </div>
+
+                    <div class="d-lg-none border-top mt-2 pt-2">
+                        <div class="d-flex align-items-center gap-2 mb-2 px-2">
+                            <span class="nav-link p-0" style="font-size:0.85rem;">Theme:</span>
+                            <div class="theme-toggle">
+                                <button class="theme-toggle-btn" data-theme-value="light" title="Light mode"><i class="bi bi-sun-fill"></i></button>
+                                <button class="theme-toggle-btn active" data-theme-value="dark" title="Dark mode"><i class="bi bi-moon-fill"></i></button>
+                            </div>
+                        </div>
+                        <a class="nav-link" href="@shopUrl" target="_blank" rel="noopener"><i class="bi bi-shop me-2"></i>Zum Shop</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer class="lf-footer">
+        <div class="container">
+            <div class="row g-4 pb-2">
+                <div class="col-lg-5 col-md-6">
+                    <span class="footer-brand"><i class="bi bi-flower1"></i> Loren Flowers Events</span>
+                    <p class="footer-tagline">Florale Begleitung für die schönsten und bewegendsten Momente Ihres Lebens. Handgebunden mit Liebe von Larisa Ternovenko.</p>
+                    <div class="mt-3">
+                        <a href="https://www.instagram.com/loren_flowers__/" target="_blank" rel="noopener noreferrer" class="footer-social-link" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-6 offset-lg-1">
+                    <h6 class="footer-heading">Anlässe</h6>
+                    <ul class="footer-links">
+                        <li><a asp-controller="Events" asp-action="Detail" asp-route-slug="hochzeit">Hochzeit</a></li>
+                        <li><a asp-controller="Events" asp-action="Detail" asp-route-slug="trauerfeier">Trauerfeier</a></li>
+                        <li><a asp-controller="Events" asp-action="Detail" asp-route-slug="kommunion">Kommunion</a></li>
+                        <li><a asp-controller="Events" asp-action="Detail" asp-route-slug="konfirmation">Konfirmation</a></li>
+                        <li><a asp-controller="Events" asp-action="Detail" asp-route-slug="workshop">Workshop</a></li>
+                        <li><a asp-controller="Events" asp-action="Detail" asp-route-slug="maerkte">Märkte &amp; Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-6">
+                    <h6 class="footer-heading">Kontakt</h6>
+                    <ul class="footer-links">
+                        <li><a href="mailto:@contactEmail">@contactEmail</a></li>
+                        <li><a href="@shopUrl" target="_blank" rel="noopener"><i class="bi bi-shop me-1"></i>Online-Shop</a></li>
+                        <li><a href="https://www.instagram.com/loren_flowers__/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram me-1"></i>Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year Loren Flowers – Larisa Ternovenko. Alle Rechte vorbehalten. &nbsp;|&nbsp;
+                   <a href="@shopUrl/Home/Privacy" target="_blank" rel="noopener">Datenschutz</a> &nbsp;|&nbsp;
+                   <a href="@shopUrl/Home/Impressum" target="_blank" rel="noopener">Impressum</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Theme toggle (gleich wie Shop)
+        (function () {
+            const root = document.documentElement;
+            document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const v = btn.getAttribute('data-theme-value');
+                    root.setAttribute('data-theme', v);
+                    localStorage.setItem('lf-theme', v);
+                    document.querySelectorAll('.theme-toggle-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-theme-value') === v));
+                });
+            });
+            const cur = root.getAttribute('data-theme');
+            document.querySelectorAll('.theme-toggle-btn').forEach(b => b.classList.toggle('active', b.getAttribute('data-theme-value') === cur));
+        })();
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
