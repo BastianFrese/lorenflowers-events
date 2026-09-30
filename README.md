@@ -83,12 +83,24 @@ Umgebungsvariablen oder User-Secrets (die Projektdatei enthält bereits eine `Us
 
 | Schlüssel | Zweck |
 |---|---|
-| `AdminSettings:Email` / `AdminSettings:Password` | Zugang zum Admin-Dashboard – **muss lokal gesetzt werden**, sonst ist kein Login möglich |
+| `AdminSettings:Email` / `AdminSettings:PasswordHash` | Zugang zum Admin-Dashboard – **muss lokal gesetzt werden**. Erwartet wird ein PBKDF2-Hash (`iterationen.saltBase64.hashBase64`), kein Klartextpasswort. |
 | `ShopUrl` | Ziel des Shop-Links |
 | `ContactEmail` | Kontaktadresse, die in den Views verwendet wird |
 
 ```bash
-dotnet user-secrets set "AdminSettings:Password" "<lokaler Wert>"
+dotnet user-secrets set "AdminSettings:PasswordHash" "<iterationen.saltBase64.hashBase64>"
+```
+
+Den Hash erzeugt man einmalig lokal, zum Beispiel in PowerShell:
+
+```powershell
+$pw = Read-Host -AsSecureString "Admin-Passwort" | ConvertFrom-SecureString -AsPlainText
+$salt = [byte[]]::new(16); [System.Security.Cryptography.RandomNumberGenerator]::Fill($salt)
+$iter = 210000
+$hash = [System.Security.Cryptography.Rfc2898DeriveBytes]::Pbkdf2(
+    $pw, $salt, $iter, [System.Security.Cryptography.HashAlgorithmName]::SHA256, 32)
+"{0}.{1}.{2}" -f $iter, [Convert]::ToBase64String($salt), [Convert]::ToBase64String($hash)
+```
 ```
 
 ## Status
