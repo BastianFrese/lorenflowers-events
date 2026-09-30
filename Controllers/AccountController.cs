@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using System.Security.Cryptography;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
@@ -30,15 +31,15 @@ public class AccountController : Controller
         ViewBag.ReturnUrl = returnUrl;
 
         var adminEmail = _configuration["AdminSettings:Email"] ?? "loren@loren-flowers.de";
-        var adminPassword = _configuration["AdminSettings:Password"] ?? "";
+        var adminPasswordHash = _configuration["AdminSettings:PasswordHash"] ?? "";
 
-        if (string.IsNullOrEmpty(adminPassword))
+        if (string.IsNullOrEmpty(adminPasswordHash))
         {
             ModelState.AddModelError("", "Admin-Passwort ist nicht konfiguriert.");
             return View();
         }
 
-        if (string.Equals(email, adminEmail, StringComparison.OrdinalIgnoreCase) && password == adminPassword)
+        if (string.Equals(email, adminEmail, StringComparison.OrdinalIgnoreCase) && VerifyPassword(password, adminPasswordHash))
         {
             var claims = new List<Claim>
             {
@@ -72,5 +73,32 @@ public class AccountController : Controller
     {
         await HttpContext.SignOutAsync("CookieAuth");
         return RedirectToAction("Index", "Home");
+    }
+
+    /// <summary>
+    /// Prüft das eingegebene Passwort gegen den konfigurierten PBKDF2-Hash
+    /// (Format: iterationen.saltBase64.hashBase64). Der Vergleich läuft über
+    /// <see cref="CryptographicOperations.FixedTimeEquals"/> und ist damit
+    /// unabhängig von der Laufzeit.
+    /// </summary>
+    private static bool VerifyPassword(string password, string storedHash)
+    {
+        var parts = storedHash.Split('.', 3);
+        if (parts.Length != 3 || !int.TryParse(parts[0], out var iterations) || iterations < 1000)
+        {
+            return false;
+        }
+
+        try
+        {
+            var salt = Convert.FromBase64String(parts[1]);
+            var expected = Convert.FromBase64String(parts[2]);
+            var actual = Rfc2898DeriveBytes.Pbkdf2(password, salt, iterations, HashAlgorithmName.SHA256, expected.Length);
+            return CryptographicOperations.FixedTimeEquals(actual, expected);
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
     }
 }
